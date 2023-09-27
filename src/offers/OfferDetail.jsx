@@ -26,6 +26,9 @@ function OfferDetail(props) {
             <h1>{offer.title}</h1>
             <p>{offer.description}</p>
             <p>{offer.price} PLN</p>
+            <button>
+                Kup!
+            </button>
             <Link to={'/'}>Powrót</Link>
         </div>
     );
