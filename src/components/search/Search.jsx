@@ -15,9 +15,6 @@ function Search() {
         return axios.get("api/v1/offers");
     }
 
-    function searchOffers() {
-    }
-
     return (
         <div>
             <input
@@ -30,7 +27,7 @@ function Search() {
                     (<div>Brak ofert</div>)
                     :
                     (
-                        offer.map((offer) => (
+                        offers.map((offer) => (
                             <div key={offer.id}>{offer.title}</div>)
                         )
                     )
