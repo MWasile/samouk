@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 function Search() {
-    const [offer, setOffer] = useState("");
+    const [query, setQuery] = useState("");
     const [offers, setOffers] = useState([]);
 
     useEffect(() => {
@@ -20,16 +20,19 @@ function Search() {
             <input
                 type="text"
                 placeholder={"Szukaj ofert!"}
-                onChange={(e) => setOffer(e.target.value)}
+                onChange={(e) => setQuery(e.target.value)}
+                value={query}
             />
             <section>
                 {offers.length === 0 ?
                     (<div>Brak ofert</div>)
                     :
                     (
-                        offers.map((offer) => (
-                            <div key={offer.id}>{offer.title}</div>)
-                        )
+                        offers
+                            .filter((offer) => `${offer.title} ${offer.description} ${offer.tags.join(" ")}`.toLowerCase().includes(query.toLowerCase()))
+                            .map((offer) => (
+                                <div key={offer.id}>{offer.title}</div>)
+                            )
                     )
                 }
             </section>
