@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import OfferCard from "../../offers/OfferCard.jsx";
 
 function Search() {
     const [query, setQuery] = useState("");
@@ -31,7 +32,16 @@ function Search() {
                         offers
                             .filter((offer) => `${offer.title} ${offer.description} ${offer.tags.join(" ")}`.toLowerCase().includes(query.toLowerCase()))
                             .map((offer) => (
-                                <div key={offer.id}>{offer.title}</div>)
+                                    <OfferCard
+                                        key={offer.id}
+                                        id={offer.id}
+                                        title={offer.title}
+                                        thumbnail={offer.thumbnail}
+                                        price={offer.price}
+                                        author={offer.author}
+                                        tags={offer.tags}
+                                    />
+                                )
                             )
                     )
                 }
