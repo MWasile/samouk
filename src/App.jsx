@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import Search from "./components/search/Search.jsx";
 
 function App() {
 
   return (
     <>
-        <h2> samouk </h2>
+        <h2> Samouk </h2>
+        <Search />
     </>
   )
 }
