@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import OfferCard from "../../offers/OfferCard.jsx";
+import OfferCard from "../offers/OfferCard.jsx";
+
 
 function Search() {
     const [query, setQuery] = useState("");

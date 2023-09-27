@@ -7,7 +7,7 @@ const CartContext = createContext({
 });
 
 
-export function CardProvider({children}) {
+export function CartProvider({children}) {
     const [cart, setCart] = useState([]);
 
     return (
